@@ -16,6 +16,7 @@ from django.utils.translation import ugettext_lazy as _
 
 LANGUAGES = [
     ('zh-hant', _('Traditional Chinese')),
+    ('en-us', 'English'),
 ]
 
 
@@ -145,7 +146,7 @@ SUIT_CONFIG = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-LANGUAGE_CODE = 'zh-hant'
+LANGUAGE_CODE = 'zh_hant'
 
 TIME_ZONE = 'Asia/Taipei'
 
