@@ -146,7 +146,7 @@ SUIT_CONFIG = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-LANGUAGE_CODE = 'zh_hant'
+LANGUAGE_CODE = 'zh-Hant'
 
 TIME_ZONE = 'Asia/Taipei'
 
