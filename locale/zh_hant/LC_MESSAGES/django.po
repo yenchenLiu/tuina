@@ -1,0 +1,134 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-02 20:47+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: MemberSystem/settings.py:18
+msgid "Traditional Chinese"
+msgstr "繁體中文"
+
+#: MemberSystem/settings.py:136
+msgid "profile"
+msgstr "個人資料"
+
+#: MemberSystem/settings.py:137
+msgid "medical record"
+msgstr "病歷紀錄"
+
+#: consumer/admin.py:30
+msgid "remaining time"
+msgstr "剩餘時間"
+
+#: consumer/models.py:10 medical_record/models.py:8 user/models.py:8
+#: user/models.py:27
+msgid "number"
+msgstr "編號"
+
+#: consumer/models.py:11 consumer/models.py:32
+msgid "category"
+msgstr "種類"
+
+#: consumer/models.py:13 consumer/models.py:30
+msgid "hour"
+msgstr "小時"
+
+#: consumer/models.py:14
+msgid "total money"
+msgstr "總金額"
+
+#: consumer/models.py:15
+msgid "payment method"
+msgstr "付款方式"
+
+#: consumer/models.py:16
+msgid "amount paid"
+msgstr "已付金額"
+
+#: consumer/models.py:17
+msgid "remark"
+msgstr "備註"
+
+#: consumer/models.py:18 consumer/models.py:35 medical_record/models.py:12
+msgid "customer"
+msgstr "顧客"
+
+#: consumer/models.py:31
+msgid "price"
+msgstr "價格"
+
+#: consumer/models.py:34
+msgid "datetime"
+msgstr "日期時間"
+
+#: consumer/models.py:37
+#, fuzzy
+#| msgid "member card"
+msgid "membership card"
+msgstr "會員卡"
+
+#: medical_record/models.py:9
+msgid "massage times"
+msgstr "按摩次數"
+
+#: medical_record/models.py:10 user/admin.py:46
+msgid "chief complaint"
+msgstr "主訴資料"
+
+#: medical_record/models.py:11
+msgid "timestamp"
+msgstr "時間戳記"
+
+#: user/admin.py:46
+msgid "member card"
+msgstr "會員卡"
+
+#: user/models.py:9 user/models.py:28
+msgid "name"
+msgstr "姓名"
+
+#: user/models.py:10 user/models.py:29
+msgid "sex"
+msgstr "性別"
+
+#: user/models.py:11
+msgid "age"
+msgstr "年齡"
+
+#: user/models.py:12
+msgid "born"
+msgstr "生日"
+
+#: user/models.py:13
+msgid "address"
+msgstr "地址"
+
+#: user/models.py:14 user/models.py:30
+msgid "cellphone"
+msgstr "手機"
+
+#: user/models.py:15 user/models.py:31
+msgid "phone"
+msgstr "電話"
+
+#, fuzzy
+#~| msgid "consumer"
+#~ msgid "consumer record"
+#~ msgstr "消費紀錄"
+
+#~ msgid "used hour"
+#~ msgstr "已使用小時"
