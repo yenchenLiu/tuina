@@ -11,7 +11,7 @@ from medical_record.models import Complaint
 
 class ComplaintAdmin(admin.ModelAdmin):
     list_display = ('customer', 'number', 'massage_times', 'chief_complaint', 'timestamp')
-
+    search_fields = ('number', 'customer__name', 'chief_complaint')
     fieldsets = [
         ('主訴人', {
             'classes': ('suit-tab', 'suit-tab-general',),

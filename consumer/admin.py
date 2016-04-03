@@ -20,6 +20,7 @@ class MembershipCardAdmin(admin.ModelAdmin):
     inlines = (ExpensesRecordInline,)
     list_display = (
         'customer', 'number', 'category', 'remaining_time', 'payment_method', 'total_money', 'amount_paid', 'remark')
+    search_fields = ('customer__name', 'number')
 
     def remaining_time(self, obj):
         remaining_time = obj.hour
@@ -56,7 +57,7 @@ admin.site.register(MembershipCard, MembershipCardAdmin)
 
 class ExpensesRecordAdmin(admin.ModelAdmin):
     list_display = ('customer', 'id', 'membership_card', 'price', 'hour', 'category', 'datetime')
-
+    search_fields = ('customer__name', 'id', 'membership_card__number')
     fieldsets = [
         ('顧客資料', {
             'classes': ('suit-tab', 'suit-tab-general',),
