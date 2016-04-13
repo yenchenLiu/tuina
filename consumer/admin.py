@@ -51,6 +51,9 @@ class MembershipCardAdmin(admin.ModelAdmin):
             instance.save()
         formset.save_m2m()
 
+    def suit_row_attributes(self, obj, request):
+        return {'class': 'font-size-large'}
+
 
 admin.site.register(MembershipCard, MembershipCardAdmin)
 
