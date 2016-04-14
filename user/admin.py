@@ -35,7 +35,7 @@ class MembershipCardInline(admin.StackedInline):
 class CustomerAdmin(admin.ModelAdmin):
     inlines = (ComplaintInline, MembershipCardInline)
 
-    list_display = ('name', 'number', 'sex', 'age', 'phone', 'cellphone', 'user')
+    list_display = ('name', 'number', 'sex', 'age', 'phone', 'cellphone')
     search_fields = ('number', 'name', 'phone', 'cellphone')
 
     fieldsets = [
@@ -55,6 +55,12 @@ class CustomerAdmin(admin.ModelAdmin):
     suit_form_tabs = (
         ('general', '一般資料'), ('user', '進階資料'), ('complaint', _("chief complaint")), ('member', _("member card")))
 
+    def suit_row_attributes(self, obj, request):
+        return {'class': 'font-size-large'}
+
+    def suit_cell_attributes(self, obj, column):
+        return {'class': 'font-size-large'}
+
 
 class CustomerForm(ModelForm):
     class Meta:
@@ -67,7 +73,7 @@ admin.site.register(Customer, CustomerAdmin)
 
 
 class MasterAdmin(admin.ModelAdmin):
-    list_display = ('name', 'number', 'sex', 'phone', 'cellphone', 'user')
+    list_display = ('name', 'number', 'sex', 'phone', 'cellphone')
     search_fields = ('number', 'name', 'phone', 'cellphone')
 
     fieldsets = [
@@ -84,6 +90,12 @@ class MasterAdmin(admin.ModelAdmin):
     ]
 
     suit_form_tabs = (('general', '一般資料'), ('user', '進階資料'))
+
+    def suit_row_attributes(self, obj, request):
+        return {'class': 'font-size-large'}
+
+    def suit_cell_attributes(self, obj, column):
+        return {'class': 'font-size-large'}
 
 
 admin.site.register(Master, MasterAdmin)

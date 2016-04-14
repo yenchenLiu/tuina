@@ -54,6 +54,9 @@ class MembershipCardAdmin(admin.ModelAdmin):
     def suit_row_attributes(self, obj, request):
         return {'class': 'font-size-large'}
 
+    def suit_cell_attributes(self, obj, column):
+        return {'class': 'font-size-large'}
+
 
 admin.site.register(MembershipCard, MembershipCardAdmin)
 
@@ -73,6 +76,12 @@ class ExpensesRecordAdmin(admin.ModelAdmin):
     ]
 
     suit_form_tabs = (('general', '一般資料'),)
+
+    def suit_row_attributes(self, obj, request):
+        return {'class': 'font-size-large'}
+
+    def suit_cell_attributes(self, obj, column):
+        return {'class': 'font-size-large'}
 
 
 admin.site.register(ExpensesRecord, ExpensesRecordAdmin)

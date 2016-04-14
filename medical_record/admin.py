@@ -1,15 +1,28 @@
 from django.forms import ModelForm, TextInput
 from django.contrib import admin
-from django.utils.translation import ugettext as _
-from django import forms
+from medical_record.models import Complaint, Lifestyle, Sport, Physique
 
-from suit.widgets import AutosizedTextarea
 
-from user.models import Customer, Master
-from medical_record.models import Complaint
+class LifestyleInline(admin.StackedInline):
+    model = Lifestyle
+    extra = 1
+    suit_classes = 'suit-tab suit-tab-general'
+
+
+class SportInline(admin.StackedInline):
+    model = Sport
+    extra = 1
+    suit_classes = 'suit-tab suit-tab-general'
+
+
+class PhysiqueInline(admin.StackedInline):
+    model = Physique
+    extra = 1
+    suit_classes = 'suit-tab suit-tab-general'
 
 
 class ComplaintAdmin(admin.ModelAdmin):
+    inlines = (LifestyleInline, SportInline, PhysiqueInline)
     list_display = ('customer', 'number', 'massage_times', 'chief_complaint', 'timestamp')
     search_fields = ('number', 'customer__name', 'chief_complaint')
     fieldsets = [
@@ -24,6 +37,12 @@ class ComplaintAdmin(admin.ModelAdmin):
     ]
 
     suit_form_tabs = (('general', '一般資料'),)
+
+    def suit_row_attributes(self, obj, request):
+        return {'class': 'font-size-large'}
+
+    def suit_cell_attributes(self, obj, column):
+        return {'class': 'font-size-large'}
 
 
 admin.site.register(Complaint, ComplaintAdmin)
