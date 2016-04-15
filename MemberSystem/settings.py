@@ -19,8 +19,6 @@ LANGUAGES = [
     ('en-us', 'English'),
 ]
 
-
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -37,7 +35,6 @@ DEBUG = env.DEBUG
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -51,6 +48,7 @@ INSTALLED_APPS = [
     'user',
     'consumer',
     'medical_record',
+    'reservation.apps.ReservationConfig'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -84,15 +82,12 @@ TEMPLATES = [
     },
 ]
 
-
 WSGI_APPLICATION = 'MemberSystem.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = env.DATABASES
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -129,14 +124,16 @@ SUIT_CONFIG = {
     #     'auth': 'icon-lock',
     #     'user': 'icon-user',
     # },
-    'MENU_OPEN_FIRST_CHILD': True, # Default True
+    'MENU_OPEN_FIRST_CHILD': True,  # Default True
     'MENU_EXCLUDE': ('auth.group',),
     'MENU': (
         'sites',
-        {'app': 'auth', 'label': "帳戶", 'icon':'icon-lock', 'models': ('user',)},
+        {'app': 'auth', 'label': "帳戶", 'icon': 'icon-lock', 'models': ('user',)},
         {'app': 'user', 'label': _('profile'), 'icon': 'icon-user', 'models': ('Customer', 'Master')},
-        {'app': 'medical_record', 'label': _('medical record'), 'icon': 'icon-user', 'models': ('Complaint',)},
+        {'app': 'medical_record', 'label': _('medical record'), 'icon': 'icon-user',
+         'models': ('Complaint', 'Massage')},
         {'app': 'consumer', 'label': "消費記錄", 'icon': 'icon-user', 'models': ('MembershipCard', 'ExpensesRecord')},
+        {'app': 'reservation', 'label': "預約記錄", 'icon': 'icon-user', 'models': ('Reservation',)},
     ),
 
     # misc
@@ -155,7 +152,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/

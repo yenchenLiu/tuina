@@ -1,6 +1,6 @@
 from django.forms import ModelForm, TextInput
 from django.contrib import admin
-from medical_record.models import Complaint, Lifestyle, Sport, Physique
+from medical_record.models import Complaint, Lifestyle, Sport, Physique, Massage
 
 
 class LifestyleInline(admin.StackedInline):
@@ -48,4 +48,25 @@ class ComplaintAdmin(admin.ModelAdmin):
 admin.site.register(Complaint, ComplaintAdmin)
 
 
+class MassageAdmin(admin.ModelAdmin):
+    list_display = ('customer', 'massage_times', 'datetime', 'category',
+                    'hour', 'master', 'skill', 'feel', 'felt', 'remark')
+    search_fields = ('master__name', 'customer__name')
+    # fieldsets = [
+    #     ('主訴人', {
+    #         'classes': ('suit-tab', 'suit-tab-general',),
+    #         'fields': ['customer']
+    #     }),
+    #
+    # ]
 
+    suit_form_tabs = (('general', '一般資料'),)
+
+    def suit_row_attributes(self, obj, request):
+        return {'class': 'font-size-large'}
+
+    def suit_cell_attributes(self, obj, column):
+        return {'class': 'font-size-large'}
+
+
+admin.site.register(Massage, MassageAdmin)

@@ -54,3 +54,18 @@ class Physique(models.Model):
     remark = models.TextField(_("remark"), null=True, blank=True)
     complaint = models.OneToOneField('Complaint', verbose_name=_("physique"), related_name="physique",
                                      on_delete=models.CASCADE)
+
+
+class Massage(models.Model):
+    customer = models.ForeignKey('user.Customer', verbose_name=_("customer"), related_name="massage",
+                                 on_delete=models.CASCADE)
+    master = models.ForeignKey('user.Master', verbose_name=_("master"), related_name="massage",
+                               on_delete=models.CASCADE)
+    massage_times = models.IntegerField(_("massage times"), null=True, blank=True)
+    datetime = models.DateTimeField(_('datetime'))
+    category = models.CharField(_('massage category'), null=True, blank=True, max_length=20)
+    hour = models.FloatField(_("hour"))
+    skill = models.CharField(_('massage skill'), null=True, blank=True, max_length=20)
+    feel = models.CharField(_('massage feel'), null=True, blank=True, max_length=20)
+    felt = models.CharField(_('massage felt'), null=True, blank=True, max_length=20)
+    remark = models.TextField(_("remark"), null=True, blank=True)

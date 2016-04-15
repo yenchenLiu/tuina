@@ -35,3 +35,5 @@ class Master(models.Model):
         verbose_name = "師傅資料"
         verbose_name_plural = "師傅資料"
 
+    def __str__(self):
+        return self.name
