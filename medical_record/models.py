@@ -18,6 +18,9 @@ class Complaint(models.Model):
         verbose_name = "主訴資料"
         verbose_name_plural = "主訴資料"
 
+    def __str__(self):
+        return str(self.timestamp)
+
 
 class Lifestyle(models.Model):
     focus = models.CharField(_("life focus"), null=True, blank=True, max_length=20)
@@ -34,7 +37,7 @@ class Sport(models.Model):
     item = models.CharField(_("sport item"), null=True, blank=True, max_length=50)
     name = models.CharField(_("spot name"), null=True, blank=True, max_length=20)
     frequency = models.CharField(_("frequency"), null=True, blank=True, max_length=20)
-    time = models.CharField(_("time"), null=True, blank=True, max_length=20)
+    time = models.CharField(_("frequency time"), null=True, blank=True, max_length=20)
     history = models.CharField(_("history"), null=True, blank=True, max_length=20)
     review = models.CharField(_("review"), null=True, blank=True, max_length=20)
     remark = models.TextField(_("remark"), null=True, blank=True)

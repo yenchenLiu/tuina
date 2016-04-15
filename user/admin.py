@@ -14,6 +14,8 @@ class ComplaintInline(admin.StackedInline):
     model = Complaint
     extra = 0
     suit_classes = 'suit-tab suit-tab-complaint'
+    show_change_link = True
+    readonly_fields = ['timestamp']
 
 
 class MembershipCardInline(admin.StackedInline):
