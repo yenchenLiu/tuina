@@ -133,7 +133,8 @@ SUIT_CONFIG = {
         {'app': 'medical_record', 'label': _('medical record'), 'icon': 'icon-user',
          'models': ('Complaint', 'Massage')},
         {'app': 'consumer', 'label': "消費記錄", 'icon': 'icon-user', 'models': ('MembershipCard', 'ExpensesRecord')},
-        {'app': 'reservation', 'label': "預約記錄", 'icon': 'icon-user', 'models': ('Reservation',)},
+        {'app': 'reservation', 'label': "預約記錄", 'icon': 'icon-user',
+         'models': ('Reservation', {'label': '時間軸', 'url': '/admin/reservation_timeline/'},)},
     ),
 
     # misc

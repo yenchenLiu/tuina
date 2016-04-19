@@ -15,7 +15,6 @@ class ReservationForm(forms.ModelForm):
 
         widgets = {
             'date': SuitDateWidget,
-            'start_time': SuitTimeWidget,
         }
 
 

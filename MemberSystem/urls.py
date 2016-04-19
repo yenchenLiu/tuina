@@ -17,8 +17,10 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
+from reservation import views as reservation_views
 
 urlpatterns = [
+    url(r'^admin/reservation_timeline/$', reservation_views.reservation_condition),
     url(r'^admin/', admin.site.urls),
 ]
 
