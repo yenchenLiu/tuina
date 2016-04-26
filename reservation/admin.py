@@ -1,9 +1,13 @@
+import datetime
+
 from django.contrib import admin
 from django import forms
 from suit.widgets import SuitDateWidget, SuitTimeWidget, SuitSplitDateTimeWidget
 from reservation.models import Reservation
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _
+
+
 # Register your models here.
 
 
@@ -16,6 +20,37 @@ class ReservationForm(forms.ModelForm):
         widgets = {
             'date': SuitDateWidget,
         }
+
+    def clean(self):
+        try:
+            start_time = self.cleaned_data["start_time"].hour
+            if self.cleaned_data["start_time"].minute == 30:
+                start_time += 0.5
+            end_time = start_time + self.cleaned_data["hour"]
+
+            reservation_list = Reservation.objects.filter(
+                master=self.cleaned_data['master'],
+                date=self.cleaned_data['date']
+            ).exclude(id=self.instance.id)
+            for item in reservation_list:
+                start = item.start_time.hour
+
+                if item.start_time.minute == 30:
+                    start += 0.5
+                min_hour = start
+                max_hour = start + item.hour
+
+                if min_hour <= start_time < max_hour:
+                    raise forms.ValidationError("時間重疊")
+                elif min_hour <= end_time < max_hour:
+                    raise forms.ValidationError("時間重疊")
+                elif start_time <= min_hour <= end_time:
+                    raise forms.ValidationError("時間重疊")
+
+        except Exception as e:
+            raise e
+
+        return self.cleaned_data
 
 
 class ReservationAdmin(admin.ModelAdmin):

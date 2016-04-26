@@ -11,5 +11,4 @@ def reservation_condition(request):
     for item in master:
         data = {"name": item.name, "data": Reservation.objects.filter(master=item)}
         context["master"].append(data)
-    print(context)
     return render(request, "reservation/timeline.html", context)

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-15 09:01+0800\n"
+"POT-Creation-Date: 2016-04-19 16:16+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,15 +22,15 @@ msgstr ""
 msgid "Traditional Chinese"
 msgstr "繁體中文"
 
-#: MemberSystem/settings.py:137
+#: MemberSystem/settings.py:132
 msgid "profile"
 msgstr "個人資料"
 
-#: MemberSystem/settings.py:138
+#: MemberSystem/settings.py:133
 msgid "medical record"
 msgstr "病歷紀錄"
 
-#: consumer/admin.py:31 user/admin.py:31
+#: consumer/admin.py:31 user/admin.py:42
 msgid "remaining time"
 msgstr "剩餘時間"
 
@@ -43,7 +43,8 @@ msgstr "編號"
 msgid "category"
 msgstr "種類"
 
-#: consumer/models.py:13 consumer/models.py:30
+#: consumer/models.py:13 consumer/models.py:30 medical_record/models.py:67
+#: reservation/models.py:47
 msgid "hour"
 msgstr "小時"
 
@@ -59,12 +60,14 @@ msgstr "付款方式"
 msgid "amount paid"
 msgstr "已付金額"
 
-#: consumer/models.py:17 medical_record/models.py:28
-#: medical_record/models.py:40 medical_record/models.py:51
+#: consumer/models.py:17 medical_record/models.py:31
+#: medical_record/models.py:43 medical_record/models.py:54
+#: medical_record/models.py:71 reservation/models.py:49
 msgid "remark"
 msgstr "備註"
 
 #: consumer/models.py:18 consumer/models.py:35 medical_record/models.py:14
+#: medical_record/models.py:60 reservation/models.py:10
 msgid "customer"
 msgstr "顧客"
 
@@ -72,7 +75,7 @@ msgstr "顧客"
 msgid "price"
 msgstr "價格"
 
-#: consumer/models.py:34
+#: consumer/models.py:34 medical_record/models.py:65
 msgid "datetime"
 msgstr "日期時間"
 
@@ -80,95 +83,121 @@ msgstr "日期時間"
 msgid "membership card"
 msgstr "會員卡"
 
-#: medical_record/models.py:11
+#: medical_record/models.py:11 medical_record/models.py:64
 msgid "massage times"
 msgstr "按摩次數"
 
-#: medical_record/models.py:12 user/admin.py:56
+#: medical_record/models.py:12 user/admin.py:67
 msgid "chief complaint"
 msgstr "主訴紀錄"
 
 #: medical_record/models.py:13
 msgid "timestamp"
-msgstr "時間戳記"
+msgstr "時間記號"
 
-#: medical_record/models.py:23
+#: medical_record/models.py:26
 msgid "life focus"
 msgstr "生活重點"
 
-#: medical_record/models.py:24 medical_record/models.py:52
+#: medical_record/models.py:27 medical_record/models.py:55
 msgid "physique"
 msgstr "體質"
 
-#: medical_record/models.py:25
+#: medical_record/models.py:28
 msgid "sleep quality"
 msgstr "睡眠品質"
 
-#: medical_record/models.py:26
+#: medical_record/models.py:29
 msgid "diet"
 msgstr "飲食"
 
-#: medical_record/models.py:27
+#: medical_record/models.py:30
 msgid "excretion"
 msgstr "排泄"
 
-#: medical_record/models.py:29
-#, fuzzy
-#| msgid "chief complaint"
+#: medical_record/models.py:32
 msgid "complaint"
-msgstr "主訴紀錄"
+msgstr "主訴"
 
-#: medical_record/models.py:34
+#: medical_record/models.py:37
 msgid "sport item"
 msgstr "運動項目"
 
-#: medical_record/models.py:35
-#, fuzzy
-#| msgid "name"
+#: medical_record/models.py:38
 msgid "spot name"
 msgstr "運動名稱"
 
-#: medical_record/models.py:36
+#: medical_record/models.py:39
 msgid "frequency"
 msgstr "頻率"
 
-#: medical_record/models.py:37
-#, fuzzy
-#| msgid "frequency"
+#: medical_record/models.py:40
 msgid "frequency time"
 msgstr "頻率時間"
 
-#: medical_record/models.py:38 medical_record/models.py:48
+#: medical_record/models.py:41 medical_record/models.py:51
 msgid "history"
 msgstr "歷史"
 
-#: medical_record/models.py:39
+#: medical_record/models.py:42
 msgid "review"
 msgstr "心得"
 
-#: medical_record/models.py:41
+#: medical_record/models.py:44
 msgid "sport"
 msgstr "運動"
 
-#: medical_record/models.py:46
+#: medical_record/models.py:49
 msgid "physique item"
 msgstr "體質項目"
 
-#: medical_record/models.py:47
+#: medical_record/models.py:50
 msgid "physique name"
 msgstr "體質名稱"
 
-#: medical_record/models.py:49
+#: medical_record/models.py:52
 msgid "situation"
 msgstr "狀況"
 
-#: medical_record/models.py:50
+#: medical_record/models.py:53
 msgid "rehabilitation"
 msgstr "復健"
 
-#: user/admin.py:56
+#: medical_record/models.py:62 reservation/models.py:12
+msgid "master"
+msgstr "師傅"
+
+#: medical_record/models.py:66 reservation/models.py:48
+msgid "massage category"
+msgstr "按摩種類"
+
+#: medical_record/models.py:68
+msgid "massage skill"
+msgstr "按摩技巧"
+
+#: medical_record/models.py:69
+msgid "massage feel"
+msgstr "按摩時感覺"
+
+#: medical_record/models.py:70
+msgid "massage felt"
+msgstr "按摩後感覺"
+
+#: reservation/models.py:14
+msgid "date"
+msgstr "日期"
+
+#: reservation/models.py:15
+msgid "start time"
+msgstr "開始時間"
+
+#: user/admin.py:67
 msgid "member card"
 msgstr "會員卡"
+
+#: user/admin.py:68
+msgid "reservation"
+msgstr "預約"
 
 #: user/models.py:9 user/models.py:28
 msgid "name"
@@ -197,8 +226,3 @@ msgstr "手機"
 #: user/models.py:15 user/models.py:31
 msgid "phone"
 msgstr "電話"
-
-#, fuzzy
-#~| msgid "datetime"
-#~ msgid "time"
-#~ msgstr "日期時間"

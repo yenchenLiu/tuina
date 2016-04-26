@@ -13,6 +13,7 @@ class Customer(models.Model):
     address = models.CharField(_("address"), max_length=255, null=True, blank=True)
     cellphone = models.CharField(_("cellphone"), max_length=20, null=True, blank=True)
     phone = models.CharField(_("phone"), max_length=20, null=True, blank=True)
+    storage = models.IntegerField(_("storage"), null=True, blank=True)
     user = models.OneToOneField('auth.User', related_name='customer', on_delete=models.CASCADE, null=True, blank=True)
 
     class Meta:

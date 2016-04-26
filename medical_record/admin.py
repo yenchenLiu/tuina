@@ -52,13 +52,6 @@ class MassageAdmin(admin.ModelAdmin):
     list_display = ('customer', 'massage_times', 'datetime', 'category',
                     'hour', 'master', 'skill', 'feel', 'felt', 'remark')
     search_fields = ('master__name', 'customer__name')
-    # fieldsets = [
-    #     ('主訴人', {
-    #         'classes': ('suit-tab', 'suit-tab-general',),
-    #         'fields': ['customer']
-    #     }),
-    #
-    # ]
 
     suit_form_tabs = (('general', '一般資料'),)
 

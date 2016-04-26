@@ -7,7 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class MembershipCard(models.Model):
-    number = models.IntegerField(_("number"), unique=True)
+    number = models.IntegerField(_("number"))
     category = models.CharField(_("category"), max_length=45, choices=(
         ("一般", "一般"), ("深層推拿", "深層推拿")))
     hour = models.FloatField(_("hour"))

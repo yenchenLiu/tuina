@@ -69,3 +69,10 @@ class Massage(models.Model):
     feel = models.CharField(_('massage feel'), null=True, blank=True, max_length=20)
     felt = models.CharField(_('massage felt'), null=True, blank=True, max_length=20)
     remark = models.TextField(_("remark"), null=True, blank=True)
+
+    class Meta:
+        verbose_name = "推拿資料"
+        verbose_name_plural = "推拿資料"
+
+    def __str__(self):
+        return str(self.id)

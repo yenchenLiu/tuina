@@ -34,11 +34,16 @@ def get_days(day):
 @register.filter
 def reservation(dictionary, hour):
     for item in dictionary:
-        min_hour = item.start_time.hour
-        max_hour = item.start_time.hour+item.hour
+        start_time = item.start_time.hour
 
-        if min_hour <= hour <= max_hour:
+        if item.start_time.minute == 30:
+            start_time += 0.5
+        min_hour = start_time
+        max_hour = start_time + item.hour
+
+        if min_hour <= hour < max_hour:
             return True
+
     return False
 
 
@@ -51,9 +56,6 @@ def reservation_hour_half(dictionary, hour):
 def day(dictionary, day):
     data = []
     for item in dictionary:
-        print(item.date)
-        print(day)
-        print(day == item.date)
         if day == item.date:
             data.append(item)
     return data

@@ -19,7 +19,8 @@ class ExpensesRecordInline(admin.StackedInline):
 class MembershipCardAdmin(admin.ModelAdmin):
     inlines = (ExpensesRecordInline,)
     list_display = (
-        'customer', 'number', 'category', 'remaining_time', 'payment_method', 'total_money', 'amount_paid', 'remark')
+        'customer', 'customer__id', 'number', 'category', 'remaining_time',
+        'payment_method', 'total_money', 'amount_paid', 'remark')
     search_fields = ('customer__name', 'number')
 
     def remaining_time(self, obj):
@@ -28,8 +29,14 @@ class MembershipCardAdmin(admin.ModelAdmin):
             remaining_time -= item.hour
         return str(remaining_time) + "小時"
 
+    def customer__id(self, obj):
+        customer_id = obj.customer.number
+        return customer_id
+
+    customer__id.short_description = _("member card id")
+
     remaining_time.short_description = _("remaining time")
-    readonly_fields = ['remaining_time']
+    readonly_fields = ['remaining_time', "customer_id"]
     fieldsets = [
         ('持有人', {
             'classes': ('suit-tab', 'suit-tab-general',),
