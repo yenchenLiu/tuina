@@ -12,7 +12,7 @@ class Reservation(models.Model):
     master = models.ForeignKey('user.Master', verbose_name=_("master"), related_name="reservation",
                                on_delete=models.CASCADE)
     date = models.DateField(_("date"))
-    start_time = models.TimeField(_('start time'), choices=(
+    start_time = models.TimeField(_('start time'), default=datetime.strptime('14:00', "%H:%M").time(), choices=(
         (datetime.strptime('8:00', "%H:%M").time(), '8:00'),
         (datetime.strptime('8:30', "%H:%M").time(), '8:30'),
         (datetime.strptime('9:00', "%H:%M").time(), '9:00'),

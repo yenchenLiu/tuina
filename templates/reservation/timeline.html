@@ -6,7 +6,7 @@
     <table border="1" width="1200px">
         <thead>
         <tr>
-            <th width="10">日期</th>
+            <th>日期</th>
             {% for item in 22|get_range:8 %}
                 <th>&nbsp&nbsp{{ item }}&nbsp&nbsp</th>
                 <th>{{ item }}.5</th>
@@ -17,7 +17,7 @@
         <tbody>
         {% for day in 7|get_days %}
             <tr>
-                <td width="100px">{{ day }}</td>
+                <td width="50px">{{ day|display_date }}</td>
                 {% for item in 22|get_range:8 %}
                     <td {% if master_item.data|day:day|reservation:item %} bgcolor="aqua" {% endif %}></td>
                     <td {% if master_item.data|day:day|reservation_hour_half:item %} bgcolor="aqua" {% endif %}></td>

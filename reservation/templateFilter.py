@@ -60,3 +60,7 @@ def day(dictionary, day):
             data.append(item)
     return data
 
+
+@register.filter
+def display_date(date):
+    return date.strftime("%y-%m-%d")
