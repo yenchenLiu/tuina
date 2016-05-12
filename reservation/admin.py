@@ -3,7 +3,7 @@ import datetime
 from django.contrib import admin
 from django import forms
 from suit.widgets import SuitDateWidget, SuitTimeWidget, SuitSplitDateTimeWidget
-from reservation.models import Reservation
+from reservation.models import Reservation, PhoneRecord
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _
 
@@ -69,3 +69,20 @@ class ReservationAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Reservation, ReservationAdmin)
+
+
+class PhoneRecordAdmin(admin.ModelAdmin):
+    list_display = ('phone', 'datetime', 'remark')
+    search_fields = ('phone', 'remark')
+
+    suit_form_tabs = (('general', '一般資料'),)
+
+    def suit_row_attributes(self, obj, request):
+        return {'class': 'font-size-large'}
+
+    def suit_cell_attributes(self, obj, column):
+        return {'class': 'font-size-large'}
+
+
+admin.site.register(PhoneRecord, PhoneRecordAdmin)
+
