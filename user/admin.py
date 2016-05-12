@@ -5,7 +5,7 @@ from django import forms
 
 from suit.widgets import AutosizedTextarea
 
-from user.models import Customer, Master
+from user.models import Customer, Master, CustomerPhone
 from medical_record.models import Complaint, Massage
 from reservation.models import Reservation
 from consumer.models import MembershipCard
@@ -50,11 +50,17 @@ class MembershipCardInline(admin.StackedInline):
     readonly_fields = ['remaining_time']
 
 
-class CustomerAdmin(admin.ModelAdmin):
-    inlines = (ComplaintInline, MembershipCardInline, MassageInline, ReservationInline)
+class CustomerPhoneInline(admin.StackedInline):
+    model = CustomerPhone
+    extra = 0
+    suit_classes = 'suit-tab suit-tab-general'
 
-    list_display = ('name', 'number', 'sex', 'age', 'phone', 'cellphone', 'storage')
-    search_fields = ('number', 'name', 'phone', 'cellphone')
+
+class CustomerAdmin(admin.ModelAdmin):
+    inlines = (ComplaintInline, MembershipCardInline, MassageInline, ReservationInline, CustomerPhoneInline)
+
+    list_display = ('name', 'number', 'sex', 'age', 'storage')
+    search_fields = ('number', 'name')
 
     fieldsets = [
         ('基本資料', {
@@ -63,7 +69,7 @@ class CustomerAdmin(admin.ModelAdmin):
         }),
         ('聯絡資料', {
             'classes': ('suit-tab', 'suit-tab-general',),
-            'fields': ['address', 'phone', 'cellphone']}),
+            'fields': ['address']}),
         ('帳戶', {
             'classes': ('suit-tab', 'suit-tab-user',),
             'fields': ['user']}),
