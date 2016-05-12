@@ -47,3 +47,10 @@ class Reservation(models.Model):
     hour = models.FloatField(_("hour"), choices=((0.5, 0.5), (1, 1), (1.5, 1.5), (2.0, 2.0)))
     category = models.CharField(_('massage category'), null=True, blank=True, max_length=20)
     remark = models.TextField(_("remark"), null=True, blank=True)
+
+
+class PhoneRecord(models.Model):
+    phone = models.ForeignKey('user.CustomerPhone', verbose_name="電話", related_name="phone_record",
+                              on_delete=models.CASCADE)
+    datetime = models.DateTimeField("電話時間", auto_now=True)
+    remark = models.TextField("備註", null=True, blank=True)

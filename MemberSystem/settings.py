@@ -135,6 +135,7 @@ SUIT_CONFIG = {
         {'app': 'consumer', 'label': "消費記錄", 'icon': 'icon-user', 'models': ('MembershipCard', 'ExpensesRecord')},
         {'app': 'reservation', 'label': "預約記錄", 'icon': 'icon-user',
          'models': ('Reservation', {'label': '時間軸', 'url': '/admin/reservation_timeline/'},)},
+        {'app': 'reservation', 'label': "電話記錄", 'icon': 'icon-user', 'models': ('PhoneRecord',)},
     ),
 
     # misc
