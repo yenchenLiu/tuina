@@ -124,3 +124,15 @@ class MasterAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Master, MasterAdmin)
+
+
+class PhoneAdmin(admin.ModelAdmin):
+    list_display = ('customer', 'phone_number')
+
+    def suit_row_attributes(self, obj, request):
+        return {'class': 'font-size-large'}
+
+    def suit_cell_attributes(self, obj, column):
+        return {'class': 'font-size-large'}
+
+admin.site.register(CustomerPhone, PhoneAdmin)

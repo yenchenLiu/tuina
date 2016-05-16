@@ -73,7 +73,7 @@ admin.site.register(Reservation, ReservationAdmin)
 
 class PhoneRecordAdmin(admin.ModelAdmin):
     list_display = ('phone', 'datetime', 'remark')
-    search_fields = ('phone', 'remark')
+    search_fields = ('phone__phone_number', 'remark')
 
     suit_form_tabs = (('general', '一般資料'),)
 
