@@ -53,7 +53,7 @@ class MembershipCardInline(admin.StackedInline):
 class CustomerPhoneInline(admin.StackedInline):
     model = CustomerPhone
     extra = 0
-    suit_classes = 'suit-tab suit-tab-general'
+    suit_classes = 'suit-tab suit-tab-phone'
 
 
 class CustomerAdmin(admin.ModelAdmin):
@@ -77,7 +77,7 @@ class CustomerAdmin(admin.ModelAdmin):
     ]
 
     suit_form_tabs = (
-        ('general', '一般資料'), ('user', '進階資料'), ('complaint', _("chief complaint")), ('member', _("member card")),
+        ('general', '一般資料'), ('user', '進階資料'), ('phone', '電話資料'),('complaint', _("chief complaint")), ('member', _("member card")),
         ('reservation', _("reservation")), ('massage', _("massage")))
 
     def suit_row_attributes(self, obj, request):

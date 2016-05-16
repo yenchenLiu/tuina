@@ -1,32 +1,40 @@
 {% extends "admin/base_site.html" %}
 
 {% block content %}
-        <div class="row">
-            <div class="widget-content">
-                <h3>電話紀錄</h3>
-                <table class="table table-striped table-bordered">
-                    <thead>
+    <div class="row">
+        <div class="widget-content">
+            <h3>電話紀錄</h3>
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th>編號</th>
+                    <th>姓名</th>
+                    <th>電話</th>
+                    <th>時間</th>
+                    <th>備註</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for phone in phone_list %}
                     <tr>
-                        <th>編號</th>
-                        <th>姓名</th>
-                        <th>電話</th>
-                        <th>時間</th>
-                        <th>備註</th>
+                        <td>{{ phone.id }}</td>
+                        {% if phone.phone.customer != None %}
+                            <td>
+                                <a href="/admin/user/customer/{{ phone.phone.customer.id }}/change/">{{ phone.phone.customer }}</a>
+                            </td>
+                        {% else %}
+                            <td>
+                                <a href="/admin/user/customerphone/{{ phone.phone.id }}/change/">{{ phone.phone.customer }}</a>
+                            </td>
+                        {% endif %}
+                        <td>{{ phone.phone.phone_number }}</td>
+                        <td>{{ phone.datetime }}</td>
+                        <td><a href="/admin/reservation/phonerecord/{{ phone.id }}/change/">{{ phone.remark }}</a></td>
                     </tr>
-                    </thead>
-                    <tbody>
-                    {% for phone in phone_list %}
-                        <tr>
-                            <td>{{ phone.id }}</td>
-                            <td>{{ phone.phone.customer }}</td>
-                            <td>{{ phone.phone.phone_number }}</td>
-                            <td>{{ phone.datetime }}</td>
-                            <td>{{ phone.remark }}</td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                {% endfor %}
+                </tbody>
+            </table>
 
-            </div> <!-- /widget-content -->
-        </div>
+        </div> <!-- /widget-content -->
+    </div>
 {% endblock %}
