@@ -26,7 +26,7 @@ class PhoneLog(View):
         if 'phone' in kwargs:
             return self.call_in(request, *args, **kwargs)
         context = {}
-        phone_list = PhoneRecord.objects.all().order_by("-id")[:10]
+        phone_list = PhoneRecord.objects.all().order_by("-id")[:20]
         context["phone_list"] = phone_list
         return render(request, "phone/phone_log.html", context)
 
@@ -37,3 +37,12 @@ class PhoneLog(View):
             phone = CustomerPhone.objects.create(phone_number=kwargs["phone"])
         PhoneRecord.objects.create(phone=phone)
         return redirect(reverse("phone_log"))
+
+
+class CustomerPhoneLog(View):
+    def get(self, request, *args, **kwargs):
+        profile_id = kwargs["profile_id"]
+        context = {}
+        phone_list = PhoneRecord.objects.filter(phone__customer__id=profile_id).order_by("-id")[:10]
+        context["phone_list"] = phone_list
+        return render(request, "phone/phone_log.html", context)

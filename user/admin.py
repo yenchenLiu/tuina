@@ -62,6 +62,9 @@ class CustomerAdmin(admin.ModelAdmin):
     list_display = ('name', 'number', 'sex', 'age', 'storage')
     search_fields = ('number', 'name')
 
+    suit_form_includes = (
+        ('phone/phone_tab.html', 'top', 'phone'),
+    )
     fieldsets = [
         ('基本資料', {
             'classes': ('suit-tab', 'suit-tab-general',),
@@ -77,7 +80,8 @@ class CustomerAdmin(admin.ModelAdmin):
     ]
 
     suit_form_tabs = (
-        ('general', '一般資料'), ('user', '進階資料'), ('phone', '電話資料'),('complaint', _("chief complaint")), ('member', _("member card")),
+        ('general', '一般資料'), ('user', '進階資料'), ('phone', '電話資料'),
+        ('complaint', _("chief complaint")), ('member', _("member card")),
         ('reservation', _("reservation")), ('massage', _("massage")))
 
     def suit_row_attributes(self, obj, request):
@@ -85,6 +89,11 @@ class CustomerAdmin(admin.ModelAdmin):
 
     def suit_cell_attributes(self, obj, column):
         return {'class': 'font-size-large'}
+
+    def change_view(self, request, object_id,  extra_context=None):
+        extra_context = extra_context or {}
+        extra_context['object_id'] = object_id
+        return super(CustomerAdmin, self).change_view(request, object_id, extra_context=extra_context)
 
 
 class CustomerForm(ModelForm):
