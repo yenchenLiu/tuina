@@ -39,10 +39,14 @@ class Master(models.Model):
 
 
 class CustomerPhone(models.Model):
-    customer = models.ForeignKey('Customer', related_name='phone', on_delete=models.CASCADE)
+    customer = models.ForeignKey('Customer', related_name='phone', on_delete=models.CASCADE, null=True, blank=True)
     phone_regex = RegexValidator(regex=r'^\+?\d{5,15}$',
                                  message="電話號碼必須是純數字，上限為15個字。例如+8861234567,021234567")
     phone_number = models.CharField("電話號碼", validators=[phone_regex], max_length=15, unique=True, db_index=True)
+
+    class Meta:
+        verbose_name = '顧客電話'
+        verbose_name_plural = '顧客電話'
 
     def __str__(self):
         return str(self.phone_number)

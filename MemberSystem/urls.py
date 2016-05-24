@@ -20,6 +20,9 @@ from django.conf import settings
 from reservation import views as reservation_views
 
 urlpatterns = [
+    url(r'^phone/$', reservation_views.PhoneLog.as_view(), name="phone_log"),
+    url(r'^phone/(?P<phone>\+?\d{5,15})$', reservation_views.PhoneLog.as_view()),
+    url(r'^phone_log/(?P<profile_id>[\d]*)/$', reservation_views.CustomerPhoneLog.as_view()),
     url(r'^admin/reservation_timeline/$', reservation_views.reservation_condition),
     url(r'^admin/', admin.site.urls),
 ]
