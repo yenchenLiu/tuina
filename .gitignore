@@ -2,3 +2,6 @@
 *.pyc
 env.py
 *.sqlite3
+MemberSystem_Nginx.conf
+MemberSystem_uwsgi.ini
+uwsgi_params
