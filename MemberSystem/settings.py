@@ -130,7 +130,7 @@ SUIT_CONFIG = {
         'sites',
         {'app': 'auth', 'label': "帳戶", 'icon': 'icon-lock', 'models': ('user',)},
         {'app': 'user', 'label': _('profile'), 'icon': 'icon-user', 'models': ('Customer', 'CustomerPhone', 'Master')},
-        {'app': 'medical_record', 'label': _('medical record'), 'icon': 'icon-user',
+        {'app': 'medical_record', 'label': "推拿紀錄", 'icon': 'icon-user',
          'models': ('Complaint', 'Massage')},
         {'app': 'consumer', 'label': "消費記錄", 'icon': 'icon-user', 'models': ('MembershipCard', 'ExpensesRecord')},
         {'app': 'reservation', 'label': "預約記錄", 'icon': 'icon-user',

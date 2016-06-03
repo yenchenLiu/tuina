@@ -1,3 +1,5 @@
+import datetime
+
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse
 from django.views.generic import View
@@ -26,7 +28,7 @@ class PhoneLog(View):
         if 'phone' in kwargs:
             return self.call_in(request, *args, **kwargs)
         context = {}
-        phone_list = PhoneRecord.objects.all().order_by("-id")[:20]
+        phone_list = PhoneRecord.objects.all().order_by("-id")[:100]
         context["phone_list"] = phone_list
         return render(request, "phone/phone_log.html", context)
 
