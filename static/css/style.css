@@ -4,3 +4,6 @@ body {
 .font-size-large{
     font-size: large;
 }
+.header-content-first{
+    font-size: initial;
+}
