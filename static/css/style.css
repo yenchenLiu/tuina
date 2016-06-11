@@ -1,6 +1,18 @@
 body {
     font-size: large;
 }
+label {
+    font-size: large;
+}
+input {
+    font-size: large;
+}
+select {
+    font-size: large;
+}
+button {
+    font-size: large;
+}
 .font-size-large{
     font-size: large;
 }
